@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="996ce20a-a28a-46d4-8f40-9ee027832af0" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/9.0/project-config.xsd">
+  <name>Idea1ac</name>
+  <description />
+  <settings>
+    <options>
+      <option name="artifactRules" value="/**/*.*=&gt;test&#xA;*.zip=&gt;" />
+    </options>
+    <disabled-settings>
+      <setting-ref ref="RUNNER_5" />
+    </disabled-settings>
+    <parameters>
+      <param name="system.path.macro.MAVEN.REPOSITORY" value="%env.M2_HOME%" />
+    </parameters>
+    <build-runners>
+      <runner id="RUNNER_5" name="" type="JPS">
+        <parameters>
+          <param name="iprInfoRunParam"><![CDATA[<iprInfo path-to-ipr="" should-load-iml="true">
+  <Jdk name="1.6" path-to-library="%env.JDK_16%" is-used="true" type="JavaSDK" path-to-jdk="%env.JDK_16%">
+    <Pattern value="jre/lib/*.jar" />
+    <ExternalAnnotationPattern value="%teamcity.tool.idea%/lib/jdkAnnotations.jar" />
+  </Jdk>
+  <PathVariable name="MAVEN_REPOSITORY" value="%system.path.macro.MAVEN.REPOSITORY%" />
+</iprInfo>]]></param>
+          <param name="jvmArgs" value="-Xmx256m" />
+          <param name="target.jdk.home" value="%env.JDK_16%" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_6" name="" type="Maven2">
+        <parameters>
+          <param name="goals" value="package" />
+          <param name="maven.home" value="" />
+          <param name="mavenSelection" value="mavenSelection:default" />
+          <param name="pomLocation" value="pom.xml" />
+          <param name="teamcity.coverage.emma.include.source" value="true" />
+          <param name="teamcity.coverage.emma.instr.parameters" value="-ix -*Test*" />
+          <param name="teamcity.coverage.idea.includePatterns" value="*" />
+          <param name="teamcity.coverage.jacoco.patterns" value="+:*" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="userSettingsPath" value="" />
+          <param name="userSettingsSelection" value="userSettingsSelection:default" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <vcs-settings>
+      <vcs-entry-ref root-id="IdeaCopy_IdeaXxxxxx_HttpsLocalhost8443svnTest7javaEclipse16trunk" />
+    </vcs-settings>
+    <requirements />
+    <build-triggers />
+    <cleanup />
+  </settings>
+</build-type>
+
