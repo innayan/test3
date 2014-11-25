@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="923d698a-3df2-4d51-b8e4-dab1b90ff570" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/9.0/project-config.xsd">
+  <name>&lt;Root project&gt;</name>
+  <description>Contains all other projects</description>
+  <parameters>
+    <param name="xxxx" value="param" spec="select data_2='ff' data_1='ww' display='normal' data_3='gg'" />
+  </parameters>
+  <cleanup>
+    <policy type="daysAndBuilds" cleanup-level="ARTIFACTS">
+      <parameters>
+        <param name="keepBuilds.count" value="5" />
+        <param name="keepDays.count" value="5" />
+      </parameters>
+    </policy>
+    <options>
+      <option name="preventDependenciesArtifactsFromCleanup" value="false" />
+    </options>
+  </cleanup>
+</project>
+
