@@ -7,6 +7,7 @@
     <build-runners>
       <runner id="RUNNER_7" name="dddd" type="Maven2">
         <parameters>
+          <param name="goals" value="package" />
           <param name="maven.home" value="" />
           <param name="mavenSelection" value="mavenSelection:default" />
           <param name="pomLocation" value="trunk/java_eclipse/pom.xml" />
